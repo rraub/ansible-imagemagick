@@ -11,6 +11,8 @@ galaxy_info:
         - trusty
         - xenial
 
-  galaxy_tags: []
+  galaxy_tags:
+    - image
+    - imagemagick
 
 dependencies: []

@@ -1,0 +1,20 @@
+---
+# tasks file for imagemagick
+- name: Update apt
+  become: yes
+  become_user: root
+  apt: update_cache=yes
+
+- name: Install Imagemagick
+  become: yes
+  become_user: root
+  apt: pkg={{ item }} state=present force=yes
+  with_items:
+    - imagemagick
+    - libmagickcore-dev
+    - libmagickwand-dev
+
+- name: Copy policy file for ImageTragic fix
+  become: yes
+  become_user: root
+  copy: src=policy.xml dest=/etc/ImageMagick
